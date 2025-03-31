@@ -5,6 +5,68 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="styles.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); 
+
+        
+                const name = document.getElementById("name").value.trim();
+                const regNumber = document.getElementById("age").value.trim();
+                const department = document.getElementById("Department").value;
+                const academicYear = document.getElementById("academic-year").value.trim();
+                const section = document.getElementById("section").value.trim();
+                const dob = document.getElementById("dob").value;
+                const gender = document.getElementById("gender").value;
+                const mobile = document.getElementById("mobile").value.trim();
+                const hostelDay = document.getElementById("h/d").value;
+                const address = document.getElementById("Address").value.trim();
+               const email = document.getElementById("email").value.trim();
+               const password = document.getElementById("password").value;
+               const confirmPassword = document.querySelector("input[placeholder='Confirm Password']").value;
+
+        
+               if (password !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+        
+                if (mobile.length !== 10 || isNaN(mobile)) {
+                    alert("Please enter a valid 10-digit mobile number");
+                    return;
+                }
+
+                if (academicYear.length !== 4 || isNaN(academicYear)) {
+                    alert("Please enter a valid academic year (e.g., 2025)");
+                    return;
+                }
+
+        
+                const studentData = {
+                    name,
+                    regNumber,
+                    department,
+                    academicYear,
+                    section,
+                    dob,
+                    gender,
+                    mobile,
+                    hostelDay,
+                    address,
+                    email,
+                };
+
+                console.log("Student Data:", studentData);
+                alert("Sign-up successful!");
+
+        
+                form.reset();
+            });
+        });
+
+        </script>
     </head>
     <body>
         <div id="stu">
